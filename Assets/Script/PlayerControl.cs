@@ -2,21 +2,24 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
-    // ³ëÆ® ÆÇÁ¤¿ëÀ¸·Î µÐ movable.
+    // ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ movable.
     public bool movable = false;
-    //»ç¸Á ÆÇÁ¤¿ë º¯¼ö
+    //ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     public bool isDead = false;
-    //Àû¿¡°Ô ½ÅÈ£ Àü´Þ¿ë º¯¼ö
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ ï¿½ï¿½ï¿½Þ¿ï¿½ ï¿½ï¿½ï¿½ï¿½
     public bool playerMoved = false;
     public float moveDistance = 1.0f;
     public Vector3 targetPosition;
     [SerializeField] public GameObject[] enemyList = null;
     public GameObject sonaPrefab = null;
     private GameObject sona = null;
+    public Light2D light2D;
+    
 
 
     private void Start()
     {
+        
         isDead = false ;
         movable = false ;
         playerMoved = false ;
@@ -24,10 +27,10 @@ public class PlayerControl : MonoBehaviour
 
     private void Update()
     {
-        //Àû¿¡°Ô ÀâÈ÷´Â Áï½Ã °ÔÀÓ¿À¹ö°¡ ¶ß±â À§ÇØ update¿¡ °ÔÀÓ¿À¹ö ÇÔ¼ö À§Ä¡½ÃÅ´
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ó¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß±ï¿½ ï¿½ï¿½ï¿½ï¿½ updateï¿½ï¿½ ï¿½ï¿½ï¿½Ó¿ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½Å´
         if (isDead)
         {
-            //°ÔÀÓ ¿À¹ö È¿°ú¸¦ À§ÇÑ ÀÓ½Ã ÄÚµå
+            //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ó½ï¿½ ï¿½Úµï¿½
             Debug.Log("Game Over!");
             Time.timeScale = 0.0f;
             this.gameObject.SetActive(false);
@@ -66,10 +69,10 @@ public class PlayerControl : MonoBehaviour
 
         int layerMask = LayerMask.GetMask("Obstacle", "Trap", "Goal", "Enemy");
 
-        // ·¹ÀÌÄ³½ºÆ®¸¦ »ç¿ëÇÏ¿© ÀÌµ¿ÇÏ·Á´Â À§Ä¡¿¡ Ãæµ¹ÀÌ ÀÖ´ÂÁö °Ë»ç
+        // ï¿½ï¿½ï¿½ï¿½Ä³ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½Ìµï¿½ï¿½Ï·ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½æµ¹ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
         RaycastHit2D hit = Physics2D.Raycast(currentPosition2D, direction.normalized, distance, layerMask);
 
-        // µð¹ö±× ·Î±× Ãß°¡
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î±ï¿½ ï¿½ß°ï¿½
         //Debug.Log($"Raycast from {currentPosition2D} to {targetPosition2D}, Direction: {direction.normalized}, Distance: {distance}, LayerMask: {layerMask}");
 
         if (hit.collider != null)
@@ -78,12 +81,12 @@ public class PlayerControl : MonoBehaviour
             ITileAction tileAction = hit.collider.GetComponent<ITileAction>();
             if (tileAction != null)
             {
-                //ÀÌµ¿ÇÒ ¹æÇâ¿¡ ÀÖ´Â ¿ÀºêÁ§Æ®°¡ Æ®·¦ÀÌ¶ó¸é
+                //ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½â¿¡ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ Æ®ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½
                 if (hit.collider.gameObject.layer == 8)
                 {
                     isDead = true;
                 }
-                //... ÀûÀÌ¶ó¸é
+                //... ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½
                 else if(hit.collider.gameObject.layer== 9)
                 {
                     StunEnemy(targetPosition);
@@ -95,14 +98,14 @@ public class PlayerControl : MonoBehaviour
             }
             else
             {
-                // ÇÃ·¹ÀÌ¾î°¡ ÀÌµ¿ÇÒ ¼ö ¾ø´Â °æ¿ì == obstacle
+                // ï¿½Ã·ï¿½ï¿½Ì¾î°¡ ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ == obstacle
                 Debug.Log(" Movement blocked by: " + hit.collider.gameObject.name);
                 return false;
             }
         }
         else
         {
-            // Ãæµ¹ÀÌ °¨ÁöµÇÁö ¾Ê¾ÒÀ» ¶§¸¸ ÀÌµ¿
+            // ï¿½æµ¹ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
             transform.position = targetPosition;
             return true;
         }
