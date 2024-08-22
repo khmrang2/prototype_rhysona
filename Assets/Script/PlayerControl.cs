@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -10,16 +11,15 @@ public class PlayerControl : MonoBehaviour
     public bool playerMoved = false;
     public float moveDistance = 1.0f;
     public Vector3 targetPosition;
+
     [SerializeField] public GameObject[] enemyList = null;
+
     public GameObject sonaPrefab = null;
     private GameObject sona = null;
-    public Light2D light2D;
     
-
 
     private void Start()
     {
-        
         isDead = false ;
         movable = false ;
         playerMoved = false ;
@@ -45,8 +45,8 @@ public class PlayerControl : MonoBehaviour
 
     public void Move(Vector3 direction)
     {
-        if(sona !=null)
-        {
+        // 만약 소나가 존재하는 상태라면 소나를 제거하고 바로 소나를 생성.
+        if (sona != null) { 
             Destroy(sona);
         }
         Vector3 pos = this.transform.position + direction * moveDistance;
@@ -54,10 +54,21 @@ public class PlayerControl : MonoBehaviour
         {
             this.transform.position = pos;
             movable = false;
-            sona = Instantiate(sonaPrefab, this.transform.position, Quaternion.identity);
+            make_sona();
         }
         playerMoved = true ;
-        
+    }
+
+    private void delete_sona()
+    {
+        Destroy(sona);
+    }
+
+    private void make_sona()
+    {
+        // sona에 대한 구현은 Script/SonaExpansion에 있음.
+        // 코루틴으로 구현되어있음.
+        sona = Instantiate(sonaPrefab, this.transform.position, Quaternion.identity);
     }
 
     private bool HandleMove(Vector3 targetPosition)
