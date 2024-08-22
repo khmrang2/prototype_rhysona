@@ -35,7 +35,7 @@ ScriptedImporter:
     spriteMeshType: 1
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
-    spritePixelsToUnits: 100
+    spritePixelsToUnits: 32
     spriteBorder: {x: 0, y: 0, z: 0, w: 0}
     spriteGenerateFallbackPhysicsShape: 0
     generateCubemap: 6
@@ -97,7 +97,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 0
+  platformSettingsDirtyTick: 638599535053240789
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -121,7 +121,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: sona_effect_electric_Frame_0
+  - name: sprite_sona_effect_electric_Frame_0
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -132,7 +132,7 @@ ScriptedImporter:
       y: 4
       width: 32
       height: 32
-    spriteID: 96caec8df51bef0439492c97c48c2557
+    spriteID: 9449f84ac94cde9488a816c9ce8ce709
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -141,7 +141,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: sona_effect_electric_Frame_1
+  - name: sprite_sona_effect_electric_Frame_1
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -152,7 +152,7 @@ ScriptedImporter:
       y: 44
       width: 32
       height: 32
-    spriteID: ee8b9476a64e3a5499935560256673c5
+    spriteID: f28467926873fb248b10356b7e1624c5
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -161,7 +161,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 44}
-  - name: sona_effect_electric_Frame_2
+  - name: sprite_sona_effect_electric_Frame_2
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -172,7 +172,7 @@ ScriptedImporter:
       y: 84
       width: 32
       height: 32
-    spriteID: f09b7c7af3dc6dd43a9e351ab0313c3d
+    spriteID: bced5a780e1bd324dbc22ca5404269f8
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -181,7 +181,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 84}
-  - name: sona_effect_electric_Frame_3
+  - name: sprite_sona_effect_electric_Frame_3
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -192,7 +192,7 @@ ScriptedImporter:
       y: 4
       width: 32
       height: 32
-    spriteID: c3a8ea4aeee02234a83879957bb4b9da
+    spriteID: a532b1ad524ed2c4783430e4530f158e
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -201,7 +201,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 44, y: 4}
-  - name: sona_effect_electric_Frame_4
+  - name: sprite_sona_effect_electric_Frame_4
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -212,7 +212,7 @@ ScriptedImporter:
       y: 44
       width: 32
       height: 32
-    spriteID: 100c006734452f4408d22c9d954730e3
+    spriteID: c91212a2dd3e6e343a74b98f918debf0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -221,7 +221,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 44, y: 44}
-  - name: sona_effect_electric_Frame_5
+  - name: sprite_sona_effect_electric_Frame_5
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -232,7 +232,7 @@ ScriptedImporter:
       y: 84
       width: 32
       height: 32
-    spriteID: 85112c21108f9544eaea5d724b93f611
+    spriteID: f1b7bd3066f7c144f8ec017ae8a30469
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -244,13 +244,13 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -993651565
-    name: sona_effect_electric
+    guid: -1484913103
+    name: sprite_sona_effect_electric
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: sona_effect_electric_Frame_0
+    - name: sprite_sona_effect_electric_Frame_0
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
@@ -258,8 +258,8 @@ ScriptedImporter:
         y: 0
         width: 32
         height: 32
-      spriteId: 96caec8df51bef0439492c97c48c2557
-    - name: sona_effect_electric_Frame_1
+      spriteId: 9449f84ac94cde9488a816c9ce8ce709
+    - name: sprite_sona_effect_electric_Frame_1
       frameIndex: 1
       additiveSortOrder: 0
       cellRect:
@@ -267,8 +267,8 @@ ScriptedImporter:
         y: 0
         width: 32
         height: 32
-      spriteId: ee8b9476a64e3a5499935560256673c5
-    - name: sona_effect_electric_Frame_2
+      spriteId: f28467926873fb248b10356b7e1624c5
+    - name: sprite_sona_effect_electric_Frame_2
       frameIndex: 2
       additiveSortOrder: 0
       cellRect:
@@ -276,8 +276,8 @@ ScriptedImporter:
         y: 0
         width: 32
         height: 32
-      spriteId: f09b7c7af3dc6dd43a9e351ab0313c3d
-    - name: sona_effect_electric_Frame_3
+      spriteId: bced5a780e1bd324dbc22ca5404269f8
+    - name: sprite_sona_effect_electric_Frame_3
       frameIndex: 3
       additiveSortOrder: 0
       cellRect:
@@ -285,8 +285,8 @@ ScriptedImporter:
         y: 0
         width: 32
         height: 32
-      spriteId: c3a8ea4aeee02234a83879957bb4b9da
-    - name: sona_effect_electric_Frame_4
+      spriteId: a532b1ad524ed2c4783430e4530f158e
+    - name: sprite_sona_effect_electric_Frame_4
       frameIndex: 4
       additiveSortOrder: 0
       cellRect:
@@ -294,8 +294,8 @@ ScriptedImporter:
         y: 0
         width: 32
         height: 32
-      spriteId: 100c006734452f4408d22c9d954730e3
-    - name: sona_effect_electric_Frame_5
+      spriteId: c91212a2dd3e6e343a74b98f918debf0
+    - name: sprite_sona_effect_electric_Frame_5
       frameIndex: 5
       additiveSortOrder: 0
       cellRect:
@@ -303,10 +303,46 @@ ScriptedImporter:
         y: 0
         width: 32
         height: 32
-      spriteId: 85112c21108f9544eaea5d724b93f611
+      spriteId: f1b7bd3066f7c144f8ec017ae8a30469
     linkedCells: []
     parentIndex: -1
-  platformSettings: []
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Android
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 

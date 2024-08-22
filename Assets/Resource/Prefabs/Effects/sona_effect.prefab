@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: b339178c600ef7a459e865c98a8ece22, type: 3}
+  m_Sprite: {fileID: -1622535333295746715, guid: 7bfa0ee422cfebb4d973bd4a6f845feb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -102,8 +102,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sonaScale: {x: 0.35, y: 0.35, z: 0.35}
-  extandeTime: 0.2
-  fadeTime: 0.4
+  extandeTime: 0.1
+  fadeTime: 0.3
   lightFadeTime: 0.8
   initialOuterRadius: 1
 --- !u!58 &6737376520065074172
@@ -227,7 +227,7 @@ Animation:
   m_GameObject: {fileID: 6871972441237852919}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: -2628384642527317498, guid: 7bfa0ee422cfebb4d973bd4a6f845feb, type: 3}
+  m_Animation: {fileID: 7400000, guid: 9a34154f36797bf459ed23ea31a66307, type: 2}
   m_Animations: []
   m_WrapMode: 0
   m_PlayAutomatically: 1

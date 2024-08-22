@@ -28,8 +28,8 @@ public class SonaExpantion : MonoBehaviour
         tr = sona.GetComponent<Transform>();
         sona_light = sona.GetComponent<Light2D>();
 
-        StartCoroutine(ExpandAndFade());
         StartCoroutine(LightExpand());
+        StartCoroutine(ExpandAndFade());
     }
 
 
