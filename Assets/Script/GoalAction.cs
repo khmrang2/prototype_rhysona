@@ -46,7 +46,6 @@ public class GoalAction : MonoBehaviour
         while (gradationTime < endTime)
         {
             float a = Mathf.Lerp(0, 1, gradationTime / (endTime/2));
-            Debug.Log(a + "Ãâ·Â");
             background.color = new Color(a, a, a);
             gradationTime += Time.deltaTime;
             yield return null;
