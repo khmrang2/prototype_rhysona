@@ -10,6 +10,11 @@ public class PlayerControl : MonoBehaviour
     //������ ��ȣ ���޿� ����
     public bool playerMoved = false;
     public float moveDistance = 1.0f;
+    private float maxHealth;
+    public int health = 33;
+    private Color initialColor = Color.white;
+    private Color targetColor = Color.red;
+
     public Vector3 targetPosition;
 
     [SerializeField] public GameObject[] enemyList = null;
@@ -23,19 +28,25 @@ public class PlayerControl : MonoBehaviour
         isDead = false ;
         movable = false ;
         playerMoved = false ;
+        maxHealth = health;
+        initialColor = this.gameObject.GetComponent<SpriteRenderer>().color;
     }
 
     private void Update()
     {
         //������ ������ ��� ���ӿ����� �߱� ���� update�� ���ӿ��� �Լ� ��ġ��Ŵ
-        if (isDead)
+        if (isDead || health == 0)
         {
             //���� ���� ȿ���� ���� �ӽ� �ڵ�
             Debug.Log("Game Over!");
             Time.timeScale = 0.0f;
             this.gameObject.SetActive(false);
         }
+        float t = health / maxHealth;
+        this.gameObject.GetComponent<SpriteRenderer>().color = Color.Lerp(targetColor, initialColor, t);
+
     }
+
 
     public void MoveUp() => Move(Vector3.up);
     public void MoveDown() => Move(Vector3.down);
@@ -45,6 +56,7 @@ public class PlayerControl : MonoBehaviour
 
     public void Move(Vector3 direction)
     {
+        health--;
         // 만약 소나가 존재하는 상태라면 소나를 제거하고 바로 소나를 생성.
         if (sona != null) { 
             Destroy(sona);
@@ -68,7 +80,8 @@ public class PlayerControl : MonoBehaviour
     {
         // sona에 대한 구현은 Script/SonaExpansion에 있음.
         // 코루틴으로 구현되어있음.
-        sona = Instantiate(sonaPrefab, this.transform.position, Quaternion.identity);
+        Vector3 targetPos = this.transform.position + new Vector3(0, 1.0f, 0);
+        sona = Instantiate(sonaPrefab, targetPos, Quaternion.identity);
     }
 
     private bool HandleMove(Vector3 targetPosition)

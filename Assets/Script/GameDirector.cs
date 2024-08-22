@@ -7,6 +7,7 @@ public class GameDirector : MonoBehaviour
 {
     public GameObject menupanel;
     public GameObject player;
+    public bool goaled = false;
     private PlayerControl check_gameEnd;
 
     // Start is called before the first frame update
@@ -19,7 +20,7 @@ public class GameDirector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(check_gameEnd.gamecheck() == true)
+        if(check_gameEnd.gamecheck() == true || goaled)
         {
             menupanel.SetActive(true);
         }

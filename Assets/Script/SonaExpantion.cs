@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
@@ -9,9 +7,10 @@ public class SonaExpantion : MonoBehaviour
     private GameObject sona = null;
     Light2D sona_light = null;
     SpriteRenderer spriteRenderer = null;
-    Transform tr = null;
+    Transform spriteTransform = null;
+    Transform lightTransform = null;
 
-    public Vector3 sonaScale = new Vector3(0.35f, 0.35f, 0.35f);
+    public Vector3 sonaScale = new Vector3(3f, 3f, 3f);
     // inspector :
     // extandeTime 0.1
     // fadeTime 0.3
@@ -24,30 +23,33 @@ public class SonaExpantion : MonoBehaviour
     void Start()
     {
         sona = this.gameObject;
-        spriteRenderer = sona.GetComponent<SpriteRenderer>();
-        tr = sona.GetComponent<Transform>();
-        sona_light = sona.GetComponent<Light2D>();
+
+        // 자식 오브젝트에서 컴포넌트를 가져옵니다.
+        spriteRenderer = sona.transform.Find("Sprite").GetComponent<SpriteRenderer>();
+        spriteTransform = sona.transform.Find("Sprite").GetComponent<Transform>();
+
+        sona_light = sona.transform.Find("Light2D").GetComponent<Light2D>();
+        lightTransform = sona.transform.Find("Light2D").GetComponent<Transform>();
 
         StartCoroutine(LightExpand());
         StartCoroutine(ExpandAndFade());
     }
 
-
     IEnumerator ExpandAndFade()
     {
-        Vector3 initialScale = tr.localScale;
+        Vector3 initialScale = spriteTransform.localScale;
         Vector3 targetScale = sonaScale;
         float elapsedTime = 0f;
 
         // Expand
         while (elapsedTime < extandeTime)
         {
-            transform.localScale = Vector3.Lerp(initialScale, targetScale, elapsedTime / extandeTime);
+            spriteTransform.localScale = Vector3.Lerp(initialScale, targetScale, elapsedTime / extandeTime);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
-        tr.localScale = targetScale;
+        spriteTransform.localScale = targetScale;
 
         // Fade
         elapsedTime = 0;
@@ -60,9 +62,10 @@ public class SonaExpantion : MonoBehaviour
             elapsedTime += Time.deltaTime;
             yield return null;
         }
-        
+
         spriteRenderer.color = targetColor;
     }
+
     IEnumerator LightExpand()
     {
         float targetRadius = initialOuterRadius * 2f;
@@ -77,6 +80,5 @@ public class SonaExpantion : MonoBehaviour
             lightTime += Time.deltaTime;
             yield return null;
         }
-
     }
 }
